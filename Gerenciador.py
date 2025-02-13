@@ -1,19 +1,36 @@
 # GERENCIADOR DE TAREFAS EM PYTHON
 
-sair = 0
+def adicionar_tarefa(tarefas, nome_tarefa):
+    tarefa = {"tarefa": nome_tarefa, "concluida": False}
+    tarefas.append(tarefa)
+    print(f'A tarefa {nome_tarefa} foi adicionada com sucesso!')
+    print(tarefas)
+    return
 
-print("Menu do gerenciador")
-while sair != 6:
-    comando = int(input("""Gerenciador de tarefas
-                    [1] Adicionar uma tarefa
-                    [2] Atualizar uma tarefa
-                    [3] Visualizar lista de tarefas
-                    [4] Marcar tarefa como concluida
-                    [5] Limpar tarefas concluidas
-                    [6] Sair
-                    Digite o numero de um comando
-                    """))
+
+
+tarefas = []
+
+print("==Menu do gerenciador==")
+
+while True:
+    comando = int(input("""
+[1] Adicionar uma tarefa
+[2] Visualizar lista de tarefas
+[3] Atualizar uma tarefa
+[4] Marcar tarefa como concluida
+[5] Limpar tarefas concluidas
+[6] Sair
+                        
+Digite o numero de um comando: """))
     
-    if comando > 6 or comando != int:
-        print("Comando inexistente!!")
-    elif 
+    if comando == 1:
+        nome_tarefa = input("Adicione uma tarefa: ")
+        adicionar_tarefa(tarefas, nome_tarefa)
+    elif comando == 2:
+        visualizar_tarefa()
+    elif comando == 6:
+        break
+
+print("Programa Finalizado")
+
