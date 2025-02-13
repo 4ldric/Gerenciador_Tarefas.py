@@ -4,9 +4,16 @@ def adicionar_tarefa(tarefas, nome_tarefa):
     tarefa = {"tarefa": nome_tarefa, "concluida": False}
     tarefas.append(tarefa)
     print(f'A tarefa {nome_tarefa} foi adicionada com sucesso!')
-    print(tarefas)
     return
 
+
+def visualizar_tarefa():
+    print("\n Lista de tarefas")
+    for indice, tarefa in enumerate(tarefas, start = 1):
+        status = "✓" if tarefa["concluida"] else " "
+        nome_tarefa = tarefa["tarefa"]
+        print(f'{indice}.  [{status}] {nome_tarefa}')
+    return
 
 
 tarefas = []
@@ -23,7 +30,7 @@ while True:
 [6] Sair
                         
 Digite o numero de um comando: """))
-    
+
     if comando == 1:
         nome_tarefa = input("Adicione uma tarefa: ")
         adicionar_tarefa(tarefas, nome_tarefa)
@@ -33,4 +40,3 @@ Digite o numero de um comando: """))
         break
 
 print("Programa Finalizado")
-
