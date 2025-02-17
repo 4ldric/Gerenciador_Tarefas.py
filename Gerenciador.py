@@ -25,6 +25,15 @@ def atualizar_tarefa(tarefas, indice_tarefa, novo_nome_tarefa):
         print("Tarefa não existe!!")
     return
 
+def concluir_tarefa(tarefas, indice_tarefa):
+    indice_ajustado = indice_tarefa - 1
+    if indice_ajustado >= 0 and indice_ajustado < len(tarefas):
+        tarefas[indice_ajustado]["concluida"] = True 
+        print(f'Tarefa: {tarefas[indice_ajustado]["tarefa"]} foi marcada como concluida')
+    else:
+        print("Tarefa não existe!!")
+    return
+
 tarefas = []
 
 print("==Menu do gerenciador==")
@@ -50,6 +59,10 @@ Digite o numero de um comando: """))
         indice_tarefa = int(input("Digite o numero da tarefa: "))
         novo_nome = input("Digite o novo nome da tarefa: ")
         atualizar_tarefa(tarefas, indice_tarefa, novo_nome)
+    elif comando == 4:
+        visualizar_tarefa()
+        indice_tarefa = int(input("Digite o numero da tarefa: "))
+        concluir_tarefa(tarefas, indice_tarefa)
     elif comando == 6:
         break
 
