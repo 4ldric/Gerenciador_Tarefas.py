@@ -12,9 +12,18 @@ def visualizar_tarefa():
     for indice, tarefa in enumerate(tarefas, start = 1):
         status = "✓" if tarefa["concluida"] else " "
         nome_tarefa = tarefa["tarefa"]
-        print(f'{indice}.  [{status}] {nome_tarefa}')
+        print(f'{indice}. [{status}] {nome_tarefa}')
     return
 
+
+def atualizar_tarefa(tarefas, indice_tarefa, novo_nome_tarefa):
+    indice_ajustado = indice_tarefa - 1
+    if indice_ajustado >= 0 and indice_ajustado < len(tarefas):
+        tarefas[indice_ajustado]["tarefa"] = novo_nome_tarefa
+        print(f"Tarefa {indice_tarefa} atualizada para {novo_nome_tarefa}")
+    else:
+        print("Tarefa não existe!!")
+    return
 
 tarefas = []
 
@@ -36,6 +45,11 @@ Digite o numero de um comando: """))
         adicionar_tarefa(tarefas, nome_tarefa)
     elif comando == 2:
         visualizar_tarefa()
+    elif comando == 3:
+        visualizar_tarefa()
+        indice_tarefa = int(input("Digite o numero da tarefa: "))
+        novo_nome = input("Digite o novo nome da tarefa: ")
+        atualizar_tarefa(tarefas, indice_tarefa, novo_nome)
     elif comando == 6:
         break
 
