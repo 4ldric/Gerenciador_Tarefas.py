@@ -34,6 +34,14 @@ def concluir_tarefa(tarefas, indice_tarefa):
         print("Tarefa não existe!!")
     return
 
+def deletar_tarefa_completada(tarefas):
+    for tarefa in tarefas:
+        if tarefa["concluida"]:
+            tarefas.remove(tarefa)
+    visualizar_tarefa()
+    print("Tarefas completadas foram deletadas")
+    return
+
 tarefas = []
 
 print("==Menu do gerenciador==")
@@ -63,6 +71,8 @@ Digite o numero de um comando: """))
         visualizar_tarefa()
         indice_tarefa = int(input("Digite o numero da tarefa: "))
         concluir_tarefa(tarefas, indice_tarefa)
+    elif comando == 5:
+        deletar_tarefa_completada(tarefas)
     elif comando == 6:
         break
 
