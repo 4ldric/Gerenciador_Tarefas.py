@@ -1,18 +1,19 @@
 # GERENCIADOR DE TAREFAS EM PYTHON
 
+
 def adicionar_tarefa(tarefas, nome_tarefa):
     tarefa = {"tarefa": nome_tarefa, "concluida": False}
     tarefas.append(tarefa)
-    print(f'A tarefa {nome_tarefa} foi adicionada com sucesso!')
+    print(f"A tarefa {nome_tarefa} foi adicionada com sucesso!")
     return
 
 
 def visualizar_tarefa():
     print("\n Lista de tarefas")
-    for indice, tarefa in enumerate(tarefas, start = 1):
+    for indice, tarefa in enumerate(tarefas, start=1):
         status = "✓" if tarefa["concluida"] else " "
         nome_tarefa = tarefa["tarefa"]
-        print(f'{indice}. [{status}] {nome_tarefa}')
+        print(f"{indice}. [{status}] {nome_tarefa}")
     return
 
 
@@ -25,14 +26,18 @@ def atualizar_tarefa(tarefas, indice_tarefa, novo_nome_tarefa):
         print("Tarefa não existe!!")
     return
 
+
 def concluir_tarefa(tarefas, indice_tarefa):
     indice_ajustado = indice_tarefa - 1
     if indice_ajustado >= 0 and indice_ajustado < len(tarefas):
-        tarefas[indice_ajustado]["concluida"] = True 
-        print(f'Tarefa: {tarefas[indice_ajustado]["tarefa"]} foi marcada como concluida')
+        tarefas[indice_ajustado]["concluida"] = True
+        print(
+            f"Tarefa: {tarefas[indice_ajustado]['tarefa']} foi marcada como concluida"
+        )
     else:
         print("Tarefa não existe!!")
     return
+
 
 def deletar_tarefa_completada(tarefas):
     for tarefa in tarefas:
@@ -42,20 +47,25 @@ def deletar_tarefa_completada(tarefas):
     print("Tarefas completadas foram deletadas")
     return
 
+
 tarefas = []
 
 print("==Menu do gerenciador==")
 
 while True:
-    comando = int(input("""
+    comando = int(
+        input(
+            """
 [1] Adicionar uma tarefa
 [2] Visualizar lista de tarefas
 [3] Atualizar uma tarefa
 [4] Marcar tarefa como concluida
 [5] Limpar tarefas concluidas
 [6] Sair
-                        
-Digite o numero de um comando: """))
+
+Digite o numero de um comando: """
+        )
+    )
 
     if comando == 1:
         nome_tarefa = input("Adicione uma tarefa: ")
